@@ -39,22 +39,26 @@ df = df[cols]
 
 #  Map grade to star rating category
 grade_mapping = {
-    'Deluxe': 'FIVE',
+    'DELUXE': 'FIVE',
     'A': 'FIVE',
-    'Superior': 'FOUR',
+    'FIVE':'FIVE',
+    'SUPERIOR': 'FOUR',
     'B': 'FOUR',
-    'Standard': 'THREE',
-    'C': 'THREE'
+    'FOUR':'FOUR',
+    'STANDARD': 'THREE',
+    'C': 'THREE',
+    'THREE':'THREE',
+    'TWO':'TWO',
+    'ONE':'ONE'
+    
 }
 
 df['grade'] = df['grade'].map(grade_mapping)
+df['grade'] = df['grade'].fillna('UNRATED')
 
 # Standardize text fields
 df['type'] = df['type'].str.title().str.strip()
 df['district'] = df['district'].str.title().str.strip()
-df['grade'] = df['grade'].fillna('Unrated').str.strip()
-
-
 # Save cleaned dataset
 df.to_csv("cleaned_accommodation.csv", index=False)
 
