@@ -100,6 +100,42 @@ st.subheader("📍 Accommodation Locations Map")
 st.map(filtered_df[['latitude', 'longitude']])
 
 #-------------------------------------------------------------------
+
+# Visual 5: Accommodation Count by District
+# --------------------------------
+st.subheader("🏢 Number of Accommodations by District")
+count_by_district = filtered_df['district'].value_counts().reset_index()
+count_by_district.columns = ['District', 'Number of Accommodations']
+
+fig5 = px.bar(count_by_district, x='District', y='Number of Accommodations',
+              color='District', title='Total Accommodations by District')
+st.plotly_chart(fig5, use_container_width=True)
+
+#----------------------------------------------------------------------------
+
+# Visual 6: Line Chart - Average Room Capacity by Star Rating
+
+st.subheader("📈 Average Room Capacity by Star Rating")
+
+# Group by star rating and calculate average rooms
+room_trend = (
+    filtered_df.groupby('grade')['rooms']
+    .mean()
+    .reset_index()
+    .sort_values(by='grade')
+)
+
+# Ensure proper order for plotting
+star_order = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'UNRATED']
+room_trend['grade'] = pd.Categorical(room_trend['grade'], categories=star_order, ordered=True)
+room_trend = room_trend.sort_values('grade')
+
+fig8 = px.line(room_trend, x='grade', y='rooms',
+               markers=True, title='Average Room Capacity by Star Rating',
+               labels={'rooms': 'Average Number of Rooms', 'grade': 'star rating'})
+
+st.plotly_chart(fig8, use_container_width=True)
+
 # Table View
 
 st.subheader("📋 Accommodation Details Table")
@@ -107,3 +143,8 @@ st.dataframe(
     filtered_df[['hotel_id', 'name', 'type', 'grade', 'rooms', 'district', 'address']],
     use_container_width=True
 )
+
+# Footer
+# --------------------------------
+st.markdown("---")
+st.markdown("Made by Dinuki Lejinarathna | Data Science Project Lifecycle | University of Westminster")
