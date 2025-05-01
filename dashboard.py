@@ -92,3 +92,18 @@ rating_dist.columns = ['grade', 'Count']
 fig3 = px.bar(rating_dist, x='grade', y='Count', color='grade',
               title='Star Rating Distribution of Accommodations')
 st.plotly_chart(fig3, use_container_width=True)
+
+#-------------------------------------------------------------------
+# Visual 4: Map View
+
+st.subheader("📍 Accommodation Locations Map")
+st.map(filtered_df[['latitude', 'longitude']])
+
+#-------------------------------------------------------------------
+# Table View
+
+st.subheader("📋 Accommodation Details Table")
+st.dataframe(
+    filtered_df[['hotel_id', 'name', 'type', 'grade', 'rooms', 'district', 'address']],
+    use_container_width=True
+)
