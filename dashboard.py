@@ -86,7 +86,7 @@ st.plotly_chart(fig2, use_container_width=True)
 
 st.subheader("⭐ Star Rating Breakdown")
 
-rating_dist = df['grade'].value_counts().sort_index().reset_index()
+rating_dist = filtered_df['grade'].value_counts().sort_index().reset_index()
 rating_dist.columns = ['grade', 'Count']
 
 fig3 = px.bar(rating_dist, x='grade', y='Count', color='grade',
