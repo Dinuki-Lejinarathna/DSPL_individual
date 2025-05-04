@@ -13,7 +13,9 @@ st.set_page_config(page_title="Sri Lanka Accommodation Dashboard", layout="wide"
 # --------------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("D:\streamlit\DSPL_individual\cleaned_accommodation.csv")
+    df = pd.read_csv("DSPL_individual\cleaned_accommodation.csv")
+
+
     return df
 
 df = load_data()
