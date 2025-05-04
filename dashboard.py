@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
 
 # --------------------------------
@@ -9,11 +10,14 @@ import plotly.express as px
 st.set_page_config(page_title="Sri Lanka Accommodation Dashboard", layout="wide")
 
 # --------------------------------
+script_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(script_dir, 'cleaned_accommodation.csv')
+df = pd.read_csv(file_path)
 # Load Data
-# --------------------------------
+
 @st.cache_data
 def load_data():
-    df = pd.read_csv("DSPL_individual/cleaned_accommodation.csv")
+    df = pd.read_csv(file_path)
     return df
 
 df = load_data()
