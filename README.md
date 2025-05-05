@@ -4,7 +4,7 @@
 **Module:** 5DATA004W – Data Science Project Lifecycle  
 **Institution:** University of Westminster
 
-## 🧠 Project Overview
+##  Project Overview
 
 This interactive dashboard explores accommodation data across various districts in Sri Lanka. It provides dynamic visualizations and filtering capabilities to help users understand the distribution, type, and capacity of accommodations such as hotels, guesthouses, and inns.
 
@@ -12,7 +12,7 @@ The application was built as part of the **Data Science Project Lifecycle** modu
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 - Visualize the distribution of accommodations across Sri Lankan districts.
 - Identify trends in room capacity, star ratings, and accommodation types.
@@ -21,7 +21,7 @@ The application was built as part of the **Data Science Project Lifecycle** modu
 
 ---
 
-## 🛠️ Features
+##  Features
 
 - **Interactive filters**: Select district(s), accommodation type(s), and star rating(s).
 - **Map view**: Geographical visualization of accommodations using coordinates.
@@ -31,7 +31,7 @@ The application was built as part of the **Data Science Project Lifecycle** modu
 
 ---
 
-## 📦 Technologies Used
+##  Technologies Used
 
 - **Python**
 - **Streamlit** – for building the web application
